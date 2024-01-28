@@ -1,1 +1,58 @@
 # taxidata
+
+create a VM instance using GCP
+steps
+generate ssh public key in ubuntu terminal
+$cd .ssh
+$ssh-keygen -t rsa -f gcp -C shiva -b 2048  -- type rsa, file name gcp(it generates 2 public and private keys) 
+
+In GCP add public ssh key generated to the VM instance meta data so this can be accessed from that instance.
+Create a GCP vm instance with ubuntu image and 20/30 gb storage.
+
+Now from local terminal lets coinnect to remote instance using ssh
+$cd
+$ssh -i .ssh/gcp shiva@34.140.145.146    (generate identity file in .ssh access private key generated and username@external ip from the VM)
+
+install anaconda 
+$wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+$bash Anaconda3-2023.09-0-Linux-x86_64.sh
+
+$cd .ssh
+create a config file in the .ssh 
+$cd ..
+$ssh gcp (gcp is the host) using this we can login and logout of the vm
+
+
+$sudo apt install docker
+$sudo gpasswd -a $USER docker
+$sudo service docker restart
+$logout
+$ssh gcp
+
+$mkdir bin
+$wget https://github.com/docker/compose/releases/download/v2.24.3/docker-compose-linux-x86_64 -o docker-compose
+$chmod +x docker-compose
+
+$cd ..
+$nano .bashrc( to add docker compose to the path)
+in the file add 
+export PATH="${HOME}/bin:${PATH}"
+ctrl+o and ctrl+x
+
+$source .bashrc
+
+
+GIT:
+generate rsa key and add that into github to have connection
+next create a rep in github
+clone rep using https in password provide personal access token generated in git hub to have handshake mech
+create a branching strategy
+checkout to the brach then perform actions
+$git add fn
+$git status
+$git commit -m ""
+$git push (based on branch strategy)
+$git merge
+
+
+
