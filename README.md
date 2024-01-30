@@ -1,4 +1,4 @@
-# taxidata# taxidata
+# taxidata
 
 create a VM instance using GCP
 steps
