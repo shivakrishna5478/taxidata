@@ -54,5 +54,43 @@ $git commit -m ""
 $git push (based on branch strategy)
 $git merge
 
+next checkout to week1
+$docker-checkout up -d (detach mode) {creates postgres and pgadmin env as per yaml file}
+
+In VS code connect to the remote and from there forward the ports 8080 and 5432
+connect to pgadmin using host as docker image name($docker ps) and username and password of postgres image(root/root)
+
+
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+python ingest_data.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=yellow_taxi_trips \
+  --url=${URL}
+
+$pip install psycopg2-binary
+
+
+Terraform:
+$cd bin
+$wget https://releases.hashicorp.com/terraform/1.7.1/terraform_1.7.1_linux_amd64.zip
+$sudo apt install unzip
+$unzip terr*.zip
+$cd ..
+
+move service account json file to .gc folder using sftp(in IAM and admin go to service account and download a json key)
+$mkdir .gc   (in week1/taxidata rep)
+$cd .gc
+$put ny_data.json
+
+$export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/.gc/ny_data.json
+(base) shiva@ubuntuvm:~/taxidata$ gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+
+$terraform init
+$terraform plan
+$terraform apply
 
 
