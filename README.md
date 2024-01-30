@@ -92,5 +92,3 @@ $export GOOGLE_APPLICATION_CREDENTIALS=${PWD}/.gc/ny_data.json
 $terraform init
 $terraform plan
 $terraform apply
-
-
