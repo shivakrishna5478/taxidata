@@ -8,7 +8,7 @@ variable "credentials" {
 
 variable "project" {
   description = "Project"
-  default     = "earnest-pact-412216"
+  default     = "<projectid from gcp>"#earnest-pact
 }
 
 variable "region" {
