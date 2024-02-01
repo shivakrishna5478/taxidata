@@ -11,7 +11,7 @@ Create a GCP vm instance with ubuntu image and 20/30 gb storage.
 
 Now from local terminal lets coinnect to remote instance using ssh
 $cd
-$ssh -i .ssh/gcp shiva@34.140.145.146    (generate identity file in .ssh access private key generated and username@external ip from the VM)
+$ssh -i .ssh/gcp shiva@externalip   (generate identity file in .ssh access private key generated and username@external ip from the VM)
 
 install anaconda 
 $wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
